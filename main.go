@@ -6,8 +6,8 @@ import (
 )
 
 type Pair struct {
-	l string
-	r string
+	l uint32
+	r uint32
 }
 
 type Token struct {
@@ -23,8 +23,8 @@ func main() {
 	for i := 0; i < len(text)-1; i++ {
 		token := Token{
 			pair: Pair{
-				l: string(text[i]),
-				r: string(text[i+1]),
+				l: uint32(text[i]),
+				r: uint32(text[i+1]),
 			},
 		}
 
@@ -57,7 +57,7 @@ func tokenSort(freq map[Token]int, topK int) {
 			return
 		}
 
-		fmt.Printf("(%s %s) -> %d \n", k.pair.l, k.pair.r, freq[k])
+		fmt.Printf("(%d %d) -> %d \n", k.pair.l, k.pair.r, freq[k])
 
 		count++
 	}
